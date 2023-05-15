@@ -1,0 +1,56 @@
+@import "typography";
+@import "variables";
+@import "mixins";
+
+// Main
+.mainWithNav {
+	margin: 64px 1rem;
+}
+
+.p1 {
+	color: $primary-color;
+}
+.p2 {
+	color: $secondary-color;
+}
+
+.p3 {
+	color: $third-color;
+}
+
+// using a mixIn
+.datBtn {
+	@include button;
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+	.container {
+		padding: 10px;
+	}
+
+	.header {
+		padding: 10px;
+	}
+}
+
+.headerTopContainer.headerTopContainer {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	gap: 3rem;
+	padding: 0 1.5rem 0 0.75rem;
+}
+
+.headerSettingContainer {
+	display: grid;
+	gap: 0.5rem;
+
+	position: fixed;
+	top: 0px;
+	padding: 1.125rem 0;
+	height: 4rem;
+	width: 100%;
+	background-color: $primary-color;
+	z-index: 10;
+}
