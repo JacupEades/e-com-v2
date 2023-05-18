@@ -1,0 +1,40 @@
+{
+	"item": [
+		{
+			"id": 1,
+			"name": "Cool Chair",
+			"color": "black",
+			"price": 1200
+		},
+		{
+			"id": 2,
+			"name": "Sky Line",
+			"color": "blue",
+			"price": 1000
+		},
+		{
+			"id": 3,
+			"name": "Grove",
+			"color": "green",
+			"price": 499
+		},
+		{
+			"id": 4,
+			"name": "Heavens Throne",
+			"color": "gold",
+			"price": 367
+		},
+		{
+			"id": 5,
+			"name": "Rail Line",
+			"color": "grey",
+			"price": 256
+		},
+		{
+			"id": 6,
+			"name": "Razing Blaze",
+			"color": "Pink",
+			"price": 450
+		}
+	]
+}

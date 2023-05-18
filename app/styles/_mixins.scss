@@ -1,5 +1,20 @@
 @import "variables";
 
+// Buttons
+@mixin CTAButton() {
+	background-color: $primary-main;
+	color: $neutral-white;
+	padding: 1rem 1.5rem;
+	border: none;
+	width: max-content;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		transition: $trans-basic;
+		background-color: $primary-darker;
+	}
+}
 @mixin button() {
 	background-color: $primary-color;
 	color: $secondary-color;
@@ -15,5 +30,71 @@
 	&:focus {
 		outline: none;
 		box-shadow: 0 0 0 2px $secondary-color;
+	}
+}
+@mixin buttonOne() {
+	background-color: #507457;
+	color: #000000;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: darken($primary-color, 10%);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 2px $secondary-color;
+	}
+}
+@mixin buttonTwo() {
+	background-color: #507457;
+	color: #000000;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: darken($primary-color, 10%);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 2px $secondary-color;
+	}
+}
+// Links
+@mixin MenuLink() {
+	padding: 0.75rem 1rem 0.625rem 1rem;
+	text-decoration: none;
+	color: $primary-darker;
+	border-bottom: 2px solid $secondary-lightest;
+	&:hover {
+		background-color: $primary-main;
+		color: $neutral-white;
+		border-bottom: 2px solid $primary-main;
+	}
+	&:focus {
+		color: $secondary-darker;
+		border-bottom: 2px solid $primary-main;
+	}
+}
+@mixin MenuIcon() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 999px;
+	padding: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: none;
+	&:hover {
+		border: none;
+	}
+	&:focus {
+		border: none;
 	}
 }
