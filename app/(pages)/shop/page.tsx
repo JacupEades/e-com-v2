@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 
 export default function Shop() {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	const handleGetItem = (itemId: number) => {
 		// 0. checkout the local storage first to see if there is anything there
@@ -31,7 +31,7 @@ export default function Shop() {
 	};
 
 	const handleDrawer = () => {
-		dispatch(toggleDrawer());
+		// dispatch(toggleDrawer());
 	};
 
 	return (

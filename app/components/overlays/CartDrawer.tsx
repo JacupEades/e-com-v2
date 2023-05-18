@@ -13,11 +13,11 @@ export default function CartDrawer({}: Props) {
 	const [shoppingCartStorage, setShoppingCartStorage] = useState([]);
 	const [removedItem, setRemovedItem] = useState(false);
 
-	const { drawer } = useSelector((state: RootState) => ({
-		...state,
-	}));
+	// const { drawer } = useSelector((state: RootState) => ({
+	// 	...state,
+	// }));
 	// Constants
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	useEffect(() => {
 		// Retrieve the data from localStorage and parse it
@@ -40,19 +40,22 @@ export default function CartDrawer({}: Props) {
 		// Update the state with the parsed data
 		setShoppingCartStorage(parsedData);
 		setRemovedItem(false);
-	}, [removedItem, drawer]);
+	}, [
+		removedItem,
+		// drawer
+	]);
 
 	const handleClose = () => {
-		dispatch(toggleDrawer());
+		// dispatch(toggleDrawer());
 	};
 
-	if (!drawer.open) {
-		return null;
-	}
+	// if (!drawer.open) {
+	// 	return null;
+	// }
 
 	return (
 		<>
-			<motion.div
+			{/* <motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				className={styles.overlayBG}
@@ -100,7 +103,7 @@ export default function CartDrawer({}: Props) {
 						);
 					})}
 				</div>
-			</motion.div>
+			</motion.div> */}
 		</>
 	);
 }
