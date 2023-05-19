@@ -1,9 +1,8 @@
 import "./styles/globals.css";
+import { Providers } from "@/redux/provider";
 import Header from "./components/navigation/Header";
 import CartDrawer from "./components/overlays/CartDrawer";
-// Redux store
-import store from "./redux/store";
-import { Provider } from "react-redux";
+import Footer from "./components/navigation/Footer";
 
 export const metadata = {
 	title: "Elegant Telework",
@@ -18,11 +17,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				{/* <Provider store={store}> */}
-				<Header />
-				{children}
-				<CartDrawer />
-				{/* </Provider> */}
+				<Providers>
+					<Header />
+					{children}
+					<CartDrawer />
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);

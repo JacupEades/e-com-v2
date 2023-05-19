@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 
 export default function Header() {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	return (
 		<nav className={styles.headerMain}>
@@ -38,7 +38,7 @@ export default function Header() {
 					<UserCircle size={24} />
 				</Link>
 				<button
-					// onClick={() => dispatch(toggleDrawer())}
+					onClick={() => dispatch(toggleDrawer())}
 					className={styles.navLinkIcons}>
 					<ShoppingCart size={24} />
 				</button>

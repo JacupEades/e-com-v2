@@ -1,5 +1,4 @@
 "use client";
-import { Horse, Heart, Cube } from "@phosphor-icons/react";
 import styles from "../../styles/Main.module.scss";
 import ButtonOne from "@/app/components/buttons/ButtonOne";
 import data from "../../database/data.json";
@@ -7,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 
 export default function Shop() {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	const handleGetItem = (itemId: number) => {
 		// 0. checkout the local storage first to see if there is anything there
@@ -31,7 +30,7 @@ export default function Shop() {
 	};
 
 	const handleDrawer = () => {
-		// dispatch(toggleDrawer());
+		dispatch(toggleDrawer());
 	};
 
 	return (

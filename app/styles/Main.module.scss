@@ -195,9 +195,10 @@
 		padding: 0 0.9375rem;
 		width: 100%;
 
-		h4 {
+		a {
 			@include H4;
 			color: $primary-darker;
+			text-decoration: none;
 			&:hover {
 				cursor: pointer;
 				text-decoration: underline;
@@ -254,9 +255,136 @@
 	margin-top: 3rem;
 
 	.info {
-		width: 1000px;
+		display: flex;
+		padding: 3rem 4.5rem;
+		gap: 1.5rem;
+		justify-content: space-between;
+		text-align: center;
+
+		width: 100%;
 		height: 289px;
 		background-color: $primary-darker;
+
+		.infoBlock {
+			max-height: 200px;
+			.infoBMain {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 0.5rem;
+
+				height: 100%;
+
+				svg {
+					color: $secondary-main;
+					margin-bottom: 0.5rem;
+				}
+
+				h5 {
+					@include H5;
+					color: $neutral-white;
+				}
+
+				p {
+					@include P2;
+					color: $neutral-white;
+				}
+			}
+		}
+	}
+}
+// Home Our Section
+.ourMain {
+	width: 100%;
+	margin-top: 3rem;
+	.ourSection {
+		display: grid;
+		grid-template-columns: repeat(2, calc(50% - 1.5rem));
+		gap: 3rem;
+		// max-width: 1056px;
+		padding: 2rem 4.5rem;
+		margin: 0 auto;
+		.our1 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 1rem;
+			max-width: 100%;
+
+			.ourSubTitle {
+				@include P1;
+				color: $primary-darker;
+			}
+			h2 {
+				@include H2;
+				color: $primary-darker;
+			}
+			.ourP {
+				@include P2;
+				color: $primary-darker;
+			}
+			button {
+				@include CTAButton;
+				@include ButtonText;
+			}
+		}
+		.our2 {
+			width: 100%;
+			max-width: 100%;
+			height: 503px;
+			overflow: hidden;
+			.ourSVGtr {
+				width: 100%;
+				height: 100%;
+				border-radius: 0px 0px 0px 200px;
+				overflow: hidden;
+
+				background-image: url("/twoguys_chilling.svg");
+				background-size: cover;
+				background-position: center;
+			}
+		}
+		.our3 {
+			width: 100%;
+			max-width: 100%;
+			height: 503px;
+			overflow: hidden;
+			.ourSVGbl {
+				width: 100%;
+				height: 100%;
+				border-radius: 0px 200px 0px 0px;
+				overflow: hidden;
+
+				background-image: url("/twoguys_chilling.svg");
+				background-size: cover;
+				background-position: center;
+			}
+		}
+		.our4 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 1rem;
+			max-width: 100%;
+
+			.ourSubTitle {
+				@include P1;
+				color: $primary-darker;
+			}
+			h2 {
+				@include H2;
+				color: $primary-darker;
+			}
+			.ourP {
+				@include P2;
+				color: $primary-darker;
+			}
+			button {
+				@include CTAButton;
+				@include ButtonText;
+			}
+		}
 	}
 }
 
@@ -310,24 +438,36 @@
 	background-color: #fdf79c;
 }
 
-// using a mixIn
-.datBtn {
-	@include button;
-}
-.buttonOne {
-	@include buttonOne;
-}
-.buttonTwo {
-	@include buttonTwo;
-}
+// Footer Section
+.footerMain {
+	display: flex;
+	gap: 6rem;
 
-// Responsive styles
-@media (max-width: 768px) {
-	.container {
-		padding: 10px;
+	margin-top: 3rem;
+	padding: 3.375rem 6.25rem;
+	background-color: $primary-darker;
+	.footerTitle {
+		@include H4;
+		color: $secondary-lightest;
+		span {
+			@include H4;
+			color: $secondary-main;
+		}
 	}
-
-	.header {
-		padding: 10px;
+	.footerSection {
+		display: flex;
+		flex-direction: column;
+		color: $neutral-white;
+		h6 {
+			@include H6;
+		}
+		a {
+			@include P3;
+			text-decoration: none;
+			color: $neutral-white;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
