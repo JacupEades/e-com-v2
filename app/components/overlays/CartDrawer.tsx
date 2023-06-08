@@ -6,6 +6,8 @@ import { RootState } from "@/app/redux/store";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 import { motion } from "framer-motion";
 import jsonData from "../../database/data.json";
+import { Minus, Plus, X } from "@phosphor-icons/react";
+import Image from "next/image";
 
 type Props = {};
 
@@ -60,8 +62,16 @@ export default function CartDrawer({}: Props) {
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
+				className={styles.cartDrawerHeader}>
+				<h5>Cart(# items)</h5>
+				<button onClick={handleClose}>
+					<X size={32} />
+				</button>
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
 				className={styles.cartDrawerMain}>
-				<div onClick={handleClose}>Close drawer</div>
 				<div className={styles.cartCardsContainer}>
 					{shoppingCartStorage.map((obj: any, i) => {
 						// get the current item from DB
@@ -89,12 +99,38 @@ export default function CartDrawer({}: Props) {
 
 						return (
 							<div key={i} className={styles.cartCard}>
-								<h3>{singleItem.name}</h3>
-								<p>Color: {singleItem.color}</p>
-								<p>Id: {singleItem.id}</p>
-								<p>Price: ${singleItem.price * obj.qty}</p>
-								<p>Qty: {obj.qty}</p>
-								<button onClick={() => handleRemove()}>Remove All</button>
+								<div className={styles.cardImage}>
+									<Image src={`/bamboo.svg`} alt={"placeholder"} fill />
+								</div>
+								<div className={styles.cardDetails}>
+									<p className={styles.cardTitle}>{singleItem.name}</p>
+									<p className={styles.cardColor}>
+										TOP COLOR: <span>{singleItem.color}</span>
+									</p>
+									<p className={styles.cardColor}>
+										LEG COLOR: <span>{singleItem.color}</span>
+									</p>
+									<div className={styles.cardOptions}>
+										<div className={styles.cardOption1}>
+											{/* counter */}
+											<div className={styles.cardCounter}>
+												<button>
+													<Minus size={16} />
+												</button>
+												<p>{obj.qty}</p>
+												<button>
+													<Plus size={16} />
+												</button>
+											</div>
+											<h6>${singleItem.price * obj.qty}</h6>
+										</div>
+										<div className={styles.cardOption2}>
+											<button onClick={() => handleRemove()}>Remove</button>
+											<div className={styles.blob} />
+											<button>Move to wishlist</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						);
 					})}

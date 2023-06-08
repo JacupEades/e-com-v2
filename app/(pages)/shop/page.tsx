@@ -1,5 +1,5 @@
 "use client";
-import styles from "../../styles/Main.module.scss";
+import styles from "../../styles/Shop.module.scss";
 import ButtonOne from "@/app/components/buttons/ButtonOne";
 import data from "../../database/data.json";
 import { useDispatch } from "react-redux";
