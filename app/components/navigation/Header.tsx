@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Main.module.scss";
 import NavLink from "./nav-link";
 import {
@@ -12,22 +12,36 @@ import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 
 export default function Header() {
+	const [currentPath, setCurrentPath] = useState("/");
+
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		setCurrentPath(window.location.pathname);
+	}, []);
 
 	return (
 		<nav className={styles.headerMain}>
 			{/* left title */}
-			<div>
+			<Link href={"/"} className={styles.headerTitleMain}>
 				<p className={styles.headerTitle}>
 					Elegant<span>Telework</span>
 				</p>
-			</div>
+			</Link>
 			{/* center links */}
 			<div className={styles.navCenterLinks}>
-				<NavLink href={"/"}>Home</NavLink>
-				<NavLink href={"/shop"}>Shop</NavLink>
-				<NavLink href={"/login"}>Login</NavLink>
-				<NavLink href={"/login"}>Login</NavLink>
+				<NavLink href={"/desks"} activeTab={currentPath}>
+					Desks
+				</NavLink>
+				<NavLink href={"/chairs"} activeTab={currentPath}>
+					Chairs
+				</NavLink>
+				<NavLink href={"/storage"} activeTab={currentPath}>
+					Storage
+				</NavLink>
+				<NavLink href={"/desk-accessories"} activeTab={currentPath}>
+					Desk Accessories
+				</NavLink>
 			</div>
 			{/* right links */}
 			<div className={styles.navRightLinks}>

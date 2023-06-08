@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import styles from "./styles/Main.module.scss";
+import homeS from "./styles/Home.module.scss";
 import HomeCarousel from "./components/carousels/HomeCarousel";
 import {
 	HouseLineIcon,
@@ -8,78 +7,24 @@ import {
 	ShieldCheckIcon,
 	TruckIcon,
 } from "./components/icons/icons";
-import Link from "next/link";
+import PrimaryBtn from "./components/buttons/PrimaryBtn";
+import BestSellerCards from "./components/cards/BestSellerCards";
+import CategoryBlock from "./components/blocks/CategoryBlock";
+import HomeInfoBlock from "./components/blocks/HomeInfoBlock";
 
 export default function Home() {
 	const handleClick = () => {
 		console.log("gotta do dis");
 	};
 
-	const FakeCard = () => {
-		return (
-			<div className={styles.bsCard}>
-				<Image
-					src={"/bamboo.svg"}
-					alt={"bamboo"}
-					height={472}
-					width={332}
-					className={styles.bsCardImage}
-				/>
-				<div className={styles.cardBottom}>
-					{/* cardLeft */}
-					<div className={styles.cardBLeft}>
-						<h4>Standing Desk Plus</h4>
-						<p>Rating 4.9(65)</p>
-					</div>
-					{/* cardright */}
-					<div className={styles.cardBRight}>
-						<h4>$399</h4>
-						<div className={styles.cardBRightDiscount}>
-							<p className={styles.ogPrice}>$499</p>
-							<p className={styles.discountPer}>-20%</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
-	const CategoryPartOne = ({ category, image }: any) => {
-		return (
-			<div className={styles.byCatSection}>
-				<div className={styles.byCatImageContainer}>
-					<Image
-						src={`/${image}.svg`}
-						alt={category}
-						height={472}
-						width={332}
-						className={styles.byCatImage}
-					/>
-				</div>
-				<Link href={"/"}>{category}</Link>
-			</div>
-		);
-	};
-
-	const InfoBlock = ({ icon }: any) => {
-		return (
-			<div className={styles.infoBlock}>
-				<div className={styles.infoBMain}>
-					{icon}
-					<h5>Sustainably Made</h5>
-					<p>Made out of recycled and recyclable materials.</p>
-				</div>
-			</div>
-		);
-	};
-
 	return (
-		<main className={styles.mainWithNav}>
+		<main className={homeS.mainWithNav}>
 			{/* HERO Section */}
-			<section className={styles.heroSection}>
-				<div className={styles.content}>
+			<section className={homeS.heroSection}>
+				<div className={homeS.content}>
 					{/* left half */}
-					<div className={styles.heroSectionLeftMain}>
-						<div className={styles.heroSectionLeft}>
+					<div className={homeS.heroSectionLeftMain}>
+						<div className={homeS.heroSectionLeft}>
 							<h1>
 								Work From Home, <br />
 								In Style & Comfort
@@ -90,7 +35,7 @@ export default function Home() {
 								and comfort to your workspace. Experience high-quality design
 								that&apos;s worth every penny!
 							</p>
-							<button>SHOP NOW</button>
+							<PrimaryBtn label={"SHOP NOW"} onClick={handleClick} />
 						</div>
 					</div>
 					{/* empty right half */}
@@ -98,54 +43,67 @@ export default function Home() {
 				</div>
 			</section>
 			{/* Best Sellers Now on sale */}
-			<section className={styles.bestSellersMain}>
+			<section className={homeS.bestSellersMain}>
 				{/* title */}
 				<h2>Best-Sellers, Now on Sale</h2>
 				{/* Sales scrolling */}
-				<div className={styles.bestSellersCards}>
-					<div className={styles.bsCardContainer}>
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
-						<FakeCard />
+				<div className={homeS.bestSellersCards}>
+					<div className={homeS.bsCardContainer}>
+						<BestSellerCards />
 					</div>
 				</div>
 				{/* Shop by Categories */}
-				<div className={styles.byCatMain}>
+				<div className={homeS.byCatMain}>
 					<h2>Shop by Categories</h2>
 					{/* grid container */}
-					<div className={styles.byCatContainer}>
+					<div className={homeS.byCatContainer}>
 						{/* 1/4 grid image and title */}
-						<CategoryPartOne image={"bamboo"} category={"Desks"} />
-						<CategoryPartOne image={"bamboo"} category={"Chairs"} />
-						<CategoryPartOne image={"bamboo"} category={"Storage"} />
-						<CategoryPartOne image={"bamboo"} category={"Accessories"} />
+						<CategoryBlock image={"bamboo"} category={"Desks"} />
+						<CategoryBlock image={"bamboo"} category={"Chairs"} />
+						<CategoryBlock image={"bamboo"} category={"Storage"} />
+						<CategoryBlock image={"bamboo"} category={"Accessories"} />
 					</div>
 				</div>
 			</section>
 			{/* Carousel */}
 			<HomeCarousel />
 			{/* Green Info Section */}
-			<section className={styles.infoMain}>
-				<div className={styles.info}>
-					<InfoBlock icon={<LeafIcon />} />
-					<InfoBlock icon={<TruckIcon />} />
-					<InfoBlock icon={<HouseLineIcon />} />
-					<InfoBlock icon={<ShieldCheckIcon />} />
+			<section className={homeS.infoMain}>
+				<div className={homeS.info}>
+					<HomeInfoBlock
+						icon={<LeafIcon />}
+						title={"Sustainably Made"}
+						text={"Made out of recycled and recyclable materials."}
+					/>
+					<HomeInfoBlock
+						icon={<TruckIcon />}
+						title={"Free Fast Shipping"}
+						text={
+							"Free shipping within United States, arriving in 1 to 5 days."
+						}
+					/>
+					<HomeInfoBlock
+						icon={<HouseLineIcon />}
+						title={"365 Day Home Trial"}
+						text={
+							"A test run to make sure you're in love with the comfort and look."
+						}
+					/>
+					<HomeInfoBlock
+						icon={<ShieldCheckIcon />}
+						title={"10-Year Warranty"}
+						text={"We will fix it if it breaks"}
+					/>
 				</div>
 			</section>
 			{/* Our Mission/Collection Section */}
-			<section className={styles.ourMain}>
-				<div className={styles.ourSection}>
+			<section className={homeS.ourMain}>
+				<div className={homeS.ourSection}>
 					{/* top left */}
-					<div className={styles.our1}>
-						<p className={styles.ourSubTitle}>Our Mission</p>
+					<div className={homeS.our1}>
+						<p className={homeS.ourSubTitle}>Our Mission</p>
 						<h2>Enhancing Your Home Office Experience.</h2>
-						<p className={styles.ourP}>
+						<p className={homeS.ourP}>
 							At NaturalNooks, we believe a beautiful, comfortable workspace can
 							elevate your productivity and well-being. Our mission is to create
 							a seamless blend of style, comfort, and functionality in your home
@@ -153,21 +111,21 @@ export default function Home() {
 							ergonomic design and mindful living, one piece of furniture at a
 							time.
 						</p>
-						<button onClick={() => handleClick()}>SHOP NOW</button>
+						<PrimaryBtn label={"SHOP NOW"} onClick={handleClick} />
 					</div>
 					{/* top right */}
-					<div className={styles.our2}>
-						<div className={styles.ourSVGtr} />
+					<div className={homeS.our2}>
+						<div className={homeS.ourSVGtr} />
 					</div>
 					{/* bottom left */}
-					<div className={styles.our3}>
-						<div className={styles.ourSVGbl} />
+					<div className={homeS.our3}>
+						<div className={homeS.ourSVGbl} />
 					</div>
 					{/* bottom right */}
-					<div className={styles.our4}>
-						<p className={styles.ourSubTitle}>Our Collection</p>
+					<div className={homeS.our4}>
+						<p className={homeS.ourSubTitle}>Our Collection</p>
 						<h2>Contemporary Design Meets Durability.</h2>
-						<p className={styles.ourP}>
+						<p className={homeS.ourP}>
 							Our curated range of furniture is crafted for the everyday demands
 							of remote work. Every desk, chair, gadget, and accessory is
 							constructed with the promise of longevity, backed by comprehensive
@@ -175,7 +133,7 @@ export default function Home() {
 							changing needs, ensuring our pieces remain a cherished part of
 							your workspace for years to come.
 						</p>
-						<button onClick={() => handleClick()}>EXPLORE COLLECTION</button>
+						<PrimaryBtn label={"EXPLORE COLLECTION"} onClick={handleClick} />
 					</div>
 				</div>
 			</section>

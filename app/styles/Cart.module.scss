@@ -1,0 +1,228 @@
+@import "typography";
+@import "variables";
+@import "mixins";
+// OVERLAY BG
+.overlayBG {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $overlay-main;
+	z-index: 11;
+}
+// HEADER
+.cartDrawerHeader {
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 480px;
+	padding: 1.5rem;
+	background-color: $neutral-white;
+	border-bottom: 1px solid $neutral-border;
+	z-index: 13;
+
+	h5 {
+		@include H5;
+		color: $primary-darker;
+	}
+
+	button {
+		border: none;
+		height: 2rem;
+		width: 2rem;
+		background-color: $neutral-white;
+		cursor: pointer;
+	}
+}
+// PRODUCT CARDS
+.cartDrawerMain {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: calc(100vh - 19.8125rem);
+	width: 480px;
+	z-index: 12;
+	background: #ffffff;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0;
+	margin: 5rem 0 14.875rem 0;
+	&::-webkit-scrollbar {
+		width: 0;
+		background-color: transparent;
+	}
+	.cartCardsContainer {
+		display: flex;
+		flex-direction: column;
+	}
+	.cartCard {
+		display: grid;
+		grid-template-columns: 40% 60%;
+		height: 224px;
+		padding: 1.5rem 2rem;
+		border-bottom: 1px solid $neutral-border;
+		.cardImage {
+			position: relative;
+			overflow: hidden;
+
+			img {
+				// object-fit: cover;
+				object-position: center;
+			}
+		}
+		.cardDetails {
+			margin-left: 1.125rem;
+			.cardTitle {
+				@include P1;
+				color: $primary-darker;
+			}
+			.cardColor {
+				@include P3;
+				color: $neutral-text-secondary;
+
+				span {
+					color: $neutral-text;
+				}
+			}
+			.cardOptions {
+				margin-top: 1rem;
+				.cardOption1 {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-bottom: 0.5rem;
+
+					h6 {
+						@include H6;
+						color: $neutral-text;
+					}
+
+					.cardCounter {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 0.75rem;
+						height: 2.5rem;
+						border: 1px solid $neutral-border;
+						border-radius: 0.25rem;
+
+						p {
+							@include P2;
+						}
+
+						button {
+							@include P3;
+							display: flex;
+							align-items: center;
+							background-color: transparent;
+							padding: 0.5rem 1rem;
+							height: 2.5rem;
+							border: none;
+							border-radius: 0.25rem;
+							cursor: pointer;
+
+							&:hover {
+								text-decoration: underline;
+								background-color: $neutral-border;
+								transition: $trans-basic;
+							}
+						}
+					}
+				}
+				.cardOption2 {
+					display: flex;
+
+					.blob {
+						height: 21px;
+						width: 1px;
+						margin: 0 0.5rem;
+						background-color: $neutral-border;
+					}
+
+					button {
+						@include P3;
+						color: $primary-main;
+						background-color: $neutral-white;
+						border: none;
+						cursor: pointer;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// FOOTER
+@mixin FooterSpacing() {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.cartDrawerFooter {
+	@include FooterSpacing();
+	position: fixed;
+	right: 0;
+	bottom: 0;
+
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 480px;
+	min-height: 14.875rem;
+	padding: 2rem;
+	background-color: $neutral-white;
+	border-top: 1px solid $neutral-border;
+	z-index: 13;
+
+	.cartDrawerFooterContent {
+		@include FooterSpacing();
+		flex-direction: column;
+		gap: 0.5rem;
+
+		.subTotal {
+			@include FooterSpacing();
+			h6 {
+				@include H6();
+			}
+			h4 {
+				@include H4();
+			}
+		}
+		.shipping {
+			@include FooterSpacing();
+			p {
+				@include P2();
+			}
+			h6 {
+				@include H6();
+			}
+		}
+		.tax {
+			@include FooterSpacing();
+			.taxL {
+				@include P2();
+			}
+			.taxR {
+				@include P3();
+			}
+		}
+	}
+
+	.cartDrawerFooterBtnsMain {
+		display: flex;
+		gap: 1rem;
+		width: 100%;
+
+		button {
+			width: 100%;
+		}
+	}
+}

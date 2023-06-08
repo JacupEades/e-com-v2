@@ -1,7 +1,7 @@
 "use client";
 import styles from "../../styles/Main.module.scss";
-import ButtonOne from "@/app/components/buttons/ButtonOne";
-import ButtonTwo from "@/app/components/buttons/ButtonTwo";
+import ButtonOne from "@/app/components/buttons/PrimaryBtn";
+import ButtonTwo from "@/app/components/buttons/SecondaryBtn";
 // import { provider } from "../../firebase/firebaseApp";
 // import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 

@@ -5,10 +5,10 @@ type Props = {
 	onClick: any;
 };
 
-export default function ButtonTwo({ label, onClick }: Props) {
+export default function SecondaryBtn({ label, onClick }: Props) {
 	return (
 		<>
-			<button onClick={() => onClick()} className={styles.buttonTwo}>
+			<button onClick={() => onClick()} className={styles.secondaryBtn}>
 				{label}
 			</button>
 		</>

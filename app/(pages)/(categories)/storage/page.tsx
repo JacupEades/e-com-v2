@@ -1,11 +1,13 @@
 "use client";
-import styles from "../../styles/Shop.module.scss";
+import catS from "../../../styles/Shop.module.scss";
 import ButtonOne from "@/app/components/buttons/PrimaryBtn";
-import data from "../../database/data.json";
+import data from "../../../database/data.json";
 import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 
-export default function Shop() {
+type Props = {};
+
+export default function Storage({}: Props) {
 	const dispatch = useDispatch();
 
 	const handleGetItem = (itemId: number) => {
@@ -34,10 +36,10 @@ export default function Shop() {
 	};
 
 	return (
-		<main className={styles.mainWithNav}>
-			<div className={styles.tempCards}>
+		<main className={catS.mainWithNav}>
+			<div className={catS.tempCards}>
 				{data.item.map((obj) => (
-					<div key={obj.id} className={styles.tempCard}>
+					<div key={obj.id} className={catS.tempCard}>
 						<h3>{obj.name}</h3>
 						<p>SKU: {obj.id}</p>
 						<p>Color: {obj.color}</p>

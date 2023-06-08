@@ -1,0 +1,41 @@
+@import "variables";
+@import "typography";
+
+// Buttons
+@mixin PrimaryButton() {
+	@include ButtonText;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	background-color: $primary-main;
+	color: $neutral-white;
+	padding: 1rem 1.5rem;
+	border: none;
+	width: max-content;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		transition: $trans-basic;
+		background-color: $primary-darker;
+	}
+}
+
+@mixin SecondaryButton() {
+	@include ButtonText;
+	background-color: transparent;
+	color: $primary-main;
+	padding: 0.9375rem 1.5rem;
+	border: 1px solid $primary-main;
+	width: max-content;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		transition: $trans-basic;
+		color: $primary-darker;
+		background-color: $primary-lightest;
+		border: 1px solid $primary-darker;
+	}
+}
