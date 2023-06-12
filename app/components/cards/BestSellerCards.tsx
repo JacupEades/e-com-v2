@@ -5,12 +5,12 @@ import homeS from "../../styles/Home.module.scss";
 type Props = {};
 
 export default function BestSellerCards({}: Props) {
-	const FakeCard = () => {
+	const FakeCard = ({ image, name }: any) => {
 		return (
 			<div className={homeS.bsCard}>
 				<Image
-					src={"/bamboo.svg"}
-					alt={"bamboo"}
+					src={image}
+					alt={image}
 					height={472}
 					width={332}
 					className={homeS.bsCardImage}
@@ -18,7 +18,7 @@ export default function BestSellerCards({}: Props) {
 				<div className={homeS.cardBottom}>
 					{/* cardLeft */}
 					<div className={homeS.cardBLeft}>
-						<h4>Standing Desk Plus</h4>
+						<h4>{name}</h4>
 						<p>Rating 4.9(65)</p>
 					</div>
 					{/* cardright */}
@@ -36,13 +36,12 @@ export default function BestSellerCards({}: Props) {
 
 	return (
 		<>
-			<FakeCard />
-			<FakeCard />
-			<FakeCard />
-			<FakeCard />
-			<FakeCard />
-			<FakeCard />
-			<FakeCard />
+			<FakeCard image={"/bamboo.svg"} name={"Standing Desk Plus"} />
+			<FakeCard image={"/chair_1.svg"} name={"Ergonomic Mesh Chair"} />
+			<FakeCard image={"/chair_2.svg"} name={"Office Desk"} />
+			<FakeCard image={"/chair_3.svg"} name={"Headrest"} />
+			<FakeCard image={"/chair_4.svg"} name={"L Desk"} />
+			<FakeCard image={"/chair_5.svg"} name={"Monitor Riser Stand"} />
 		</>
 	);
 }

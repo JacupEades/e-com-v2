@@ -39,3 +39,23 @@
 		border: 1px solid $primary-darker;
 	}
 }
+
+@mixin SecondaryButton() {
+	@include ButtonText;
+	button {
+		position: absolute;
+		top: 50%;
+		height: 4rem;
+		width: 4rem;
+		border: none;
+		border-radius: 999px;
+		background-color: rgba($neutral-white, 0.5);
+		transform: translateY(-50%);
+		z-index: 2;
+		cursor: pointer;
+		&:hover,
+		&:focus {
+			background-color: $neutral-white;
+		}
+	}
+}

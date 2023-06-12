@@ -45,13 +45,39 @@
 	.navLinkActive {
 		@include MenuLink;
 		@include P1;
-		color: $secondary-darker;
-		border-bottom: 2px solid $primary-main;
+		background-color: $primary-main;
+		color: $neutral-white;
+		&:hover {
+			background-color: $primary-main;
+			color: $neutral-white;
+		}
 	}
 	.navLinkIcons {
 		@include MenuLink;
 		@include MenuIcon;
 		background-color: transparent;
+	}
+	.navCart {
+		@include MenuLink;
+		@include MenuIcon;
+		position: relative;
+		background-color: transparent;
+
+		.navCartBadge {
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font: normal normal 400 0.75rem/1.125rem "Lato", sans-serif;
+			height: 1rem;
+			width: 1rem;
+			color: $neutral-text;
+			background-color: $secondary-main;
+			border-radius: 999px;
+		}
 	}
 }
 

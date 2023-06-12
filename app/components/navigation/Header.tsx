@@ -8,38 +8,77 @@ import {
 	UserCircle,
 } from "@phosphor-icons/react";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
+import { RootState } from "@/app/redux/store";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+	// Cart update
+	const [shoppingCartStorage, setShoppingCartStorage] = useState([]);
+	const [removedItem, setRemovedItem] = useState(false);
+	// Navigation
 	const [currentPath, setCurrentPath] = useState("/");
-
+	const [checkPath, setCheckPath] = useState(false);
+	// Redux
+	const { drawer } = useSelector((state: RootState) => ({
+		...state,
+	}));
 	const dispatch = useDispatch();
+	const pathname = usePathname();
+
+	// Reset the path name
+	const heyCP = () => {
+		setCheckPath(true);
+	};
+	useEffect(() => {
+		if (checkPath === true && window) {
+			setCheckPath(false);
+		}
+	}, [checkPath, currentPath]);
+	useEffect(() => {
+		setCurrentPath(pathname);
+	}, [pathname]);
+	// Cart from local storage
+	useEffect(() => {
+		const localStorageData = localStorage.getItem("shoppingCart");
+		let parsedData = [];
+		if (localStorageData) {
+			parsedData = JSON.parse(localStorageData);
+		}
+		setShoppingCartStorage(parsedData);
+	}, []);
 
 	useEffect(() => {
-		setCurrentPath(window.location.pathname);
-	}, []);
+		const localStorageData = localStorage.getItem("shoppingCart");
+		let parsedData = [];
+		if (localStorageData) {
+			parsedData = JSON.parse(localStorageData);
+		}
+		setShoppingCartStorage(parsedData);
+		setRemovedItem(false);
+	}, [removedItem, drawer]);
 
 	return (
 		<nav className={styles.headerMain}>
 			{/* left title */}
 			<Link href={"/"} className={styles.headerTitleMain}>
 				<p className={styles.headerTitle}>
-					Elegant<span>Telework</span>
+					Natural<span>Nooks</span>
 				</p>
 			</Link>
 			{/* center links */}
-			<div className={styles.navCenterLinks}>
-				<NavLink href={"/desks"} activeTab={currentPath}>
+			<div className={styles.navCenterLinks} onClick={() => heyCP()}>
+				<NavLink href={"/desks"} currentPath={currentPath}>
 					Desks
 				</NavLink>
-				<NavLink href={"/chairs"} activeTab={currentPath}>
+				<NavLink href={"/chairs"} currentPath={currentPath}>
 					Chairs
 				</NavLink>
-				<NavLink href={"/storage"} activeTab={currentPath}>
+				<NavLink href={"/storage"} currentPath={currentPath}>
 					Storage
 				</NavLink>
-				<NavLink href={"/desk-accessories"} activeTab={currentPath}>
+				<NavLink href={"/desk-accessories"} currentPath={currentPath}>
 					Desk Accessories
 				</NavLink>
 			</div>
@@ -53,8 +92,15 @@ export default function Header() {
 				</Link>
 				<button
 					onClick={() => dispatch(toggleDrawer())}
-					className={styles.navLinkIcons}>
+					className={styles.navCart}>
 					<ShoppingCart size={24} />
+					{shoppingCartStorage.length > 0 ? (
+						<div className={styles.navCartBadge}>
+							{shoppingCartStorage.length}
+						</div>
+					) : (
+						<></>
+					)}
 				</button>
 			</div>
 		</nav>

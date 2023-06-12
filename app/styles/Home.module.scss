@@ -527,13 +527,3 @@
 		}
 	}
 }
-
-// BUTTONS
-.primaryBtn {
-	@include PrimaryButton;
-	@include ButtonText;
-}
-.secondaryBtn {
-	// @include CTAButton;
-	@include ButtonText;
-}

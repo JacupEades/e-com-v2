@@ -1,0 +1,19 @@
+@import "typography";
+@import "variables";
+@import "mixins";
+@import "buttons";
+
+// PRODUCT PAGE
+
+.crumbMain {
+	display: flex;
+	padding: 1.5rem 4.5rem;
+}
+.topGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+	padding: 0 4.5rem 4.5rem 4.5rem;
+	.proCarBtn {
+	}
+}

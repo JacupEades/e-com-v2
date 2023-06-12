@@ -10,7 +10,7 @@ type Props = {
 export default function PrimaryBtn({ iconL, iconR, label, onClick }: Props) {
 	return (
 		<>
-			<button onClick={() => onClick()} className={styles.primaryBtn}>
+			<button onClick={(e) => onClick(e)} className={styles.primaryBtn}>
 				{iconL}
 				{label}
 				{iconR}

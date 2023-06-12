@@ -1,6 +1,6 @@
 "use client";
 import catS from "../../../styles/Shop.module.scss";
-import ButtonOne from "@/app/components/buttons/PrimaryBtn";
+import PrimaryBtn from "@/app/components/buttons/PrimaryBtn";
 import data from "../../../database/data.json";
 import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
@@ -44,14 +44,14 @@ export default function Chairs({}: Props) {
 						<p>SKU: {obj.id}</p>
 						<p>Color: {obj.color}</p>
 						<p>Price: ${obj.price}.99</p>
-						<ButtonOne
+						<PrimaryBtn
 							// itemState[obj.id].quantity > 0 ? "Add Another" :
 							label={"Get Item"}
 							onClick={() => handleGetItem(obj.id)}
 						/>
 					</div>
 				))}
-				<ButtonOne label={"open drawer"} onClick={handleDrawer} />
+				<PrimaryBtn label={"open drawer"} onClick={handleDrawer} />
 			</div>
 		</main>
 	);

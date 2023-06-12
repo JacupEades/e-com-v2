@@ -1,9 +1,27 @@
-// Main
-.mainWithNav {
-	margin: 3rem auto;
+@import "typography";
+@import "variables";
+@import "mixins";
+@import "buttons";
+
+// CATAGORY SHOP PAGES
+.categoryHeaderMain {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 2.875rem 4.5rem;
+	color: $neutral-white;
+	background-color: $primary-main;
+
+	h1 {
+		@include H1();
+		padding-bottom: 0.75rem;
+	}
+
+	p {
+		@include P1();
+	}
 }
 
-// Shop
+// Temp
 .tempCards {
 	display: grid;
 	align-items: center;
@@ -20,4 +38,10 @@
 	gap: 1rem;
 	padding: 1rem;
 	background-color: antiquewhite;
+	cursor: pointer;
+	&:hover {
+		transition: $trans-basic;
+		background-color: aquamarine;
+		box-shadow: $box-shadow-3;
+	}
 }

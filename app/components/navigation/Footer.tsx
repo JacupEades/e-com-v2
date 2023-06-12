@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "../../styles/Main.module.scss";
-import NavLink from "./nav-link";
+import Link from "next/link";
 
 export default function Footer() {
 	// const dispatch = useDispatch();
@@ -11,30 +11,30 @@ export default function Footer() {
 			{/* left title */}
 			<div>
 				<p className={styles.footerTitle}>
-					Elegant<span>Telework</span>
+					Natural<span>Nooks</span>
 				</p>
 			</div>
 			{/* Support */}
 			<div className={styles.footerSection}>
 				<h6>Support</h6>
-				<NavLink href={"/"}>Shipping</NavLink>
-				<NavLink href={"/"}>Returns</NavLink>
-				<NavLink href={"/"}>Warrenty</NavLink>
-				<NavLink href={"/"}>Terms & Conditions</NavLink>
+				<Link href={"/"}>Shipping</Link>
+				<Link href={"/"}>Returns</Link>
+				<Link href={"/"}>Warrenty</Link>
+				<Link href={"/"}>Terms & Conditions</Link>
 			</div>
 			<div className={styles.footerSection}>
 				<h6>Bra</h6>
-				<NavLink href={"/"}>Returns</NavLink>
-				<NavLink href={"/"}>Shipping</NavLink>
-				<NavLink href={"/"}>Terms & Conditions</NavLink>
-				<NavLink href={"/"}>Warrenty</NavLink>
+				<Link href={"/"}>Returns</Link>
+				<Link href={"/"}>Shipping</Link>
+				<Link href={"/"}>Terms & Conditions</Link>
+				<Link href={"/"}>Warrenty</Link>
 			</div>
 			<div className={styles.footerSection}>
 				<h6>Sale!!</h6>
-				<NavLink href={"/"}>Terms & Conditions</NavLink>
-				<NavLink href={"/"}>Returns</NavLink>
-				<NavLink href={"/"}>Warrenty</NavLink>
-				<NavLink href={"/"}>Shipping</NavLink>
+				<Link href={"/"}>Terms & Conditions</Link>
+				<Link href={"/"}>Returns</Link>
+				<Link href={"/"}>Warrenty</Link>
+				<Link href={"/"}>Shipping</Link>
 			</div>
 		</footer>
 	);
