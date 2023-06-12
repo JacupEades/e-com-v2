@@ -67,7 +67,6 @@ export default function Desks({}: Props) {
 						/>
 					</div>
 				))}
-				<PrimaryBtn label={"OPEN CART"} onClick={handleDrawer} />
 			</div>
 		);
 	};

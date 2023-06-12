@@ -67,7 +67,6 @@ export default function Storage({}: Props) {
 						/>
 					</div>
 				))}
-				<PrimaryBtn label={"OPEN CART"} onClick={handleDrawer} />
 			</div>
 		);
 	};
