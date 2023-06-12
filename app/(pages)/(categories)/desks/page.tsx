@@ -5,6 +5,9 @@ import data from "../../../database/data.json";
 import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/app/redux/slices/drawerSlice";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import SecondaryBtn from "@/app/components/buttons/SecondaryBtn";
+import { CaretUp, X } from "@phosphor-icons/react";
 
 type Props = {};
 
@@ -40,12 +43,20 @@ export default function Desks({}: Props) {
 
 	const TempDataComp = () => {
 		return (
-			<div className={catS.tempCards}>
+			<div className={catS.productCards}>
 				{data.item.map((obj) => (
 					<div
 						key={obj.id}
-						className={catS.tempCard}
+						className={catS.productCard}
 						onClick={() => router.push(`/product/${obj.id}`)}>
+						<div className={catS.imgContainer}>
+							<Image
+								src="/bamboo.svg"
+								width={306}
+								height={262}
+								alt="Picture of a desk"
+							/>
+						</div>
 						<h3>{obj.name}</h3>
 						<p>SKU: {obj.id}</p>
 						<p>Color: {obj.color}</p>
@@ -56,15 +67,54 @@ export default function Desks({}: Props) {
 						/>
 					</div>
 				))}
-				<PrimaryBtn label={"open drawer"} onClick={handleDrawer} />
+				<PrimaryBtn label={"OPEN CART"} onClick={handleDrawer} />
 			</div>
 		);
 	};
 
 	return (
 		<main className={catS.mainWithNav}>
-			{/*  */}
-			<TempDataComp />
+			<div className={catS.categoryShopMain}>
+				{/* Filter Sidebar */}
+				<aside className={catS.filterAside}>
+					<h5>Filter</h5>
+					{/* Type */}
+					<section className={catS.filterSection}>
+						<button>
+							<h6>Type</h6>
+							<CaretUp size={24} />
+						</button>
+						<p>Placeholder</p>
+						<p>Placeholder</p>
+						<p>Placeholder</p>
+						<p>Placeholder</p>
+						<p>Placeholder</p>
+					</section>
+				</aside>
+				{/* Cards */}
+				<div className={catS.desktopCardsMain}>
+					<div className={catS.desktopCardsTop}>
+						{/* Chips */}
+						<div className={catS.filterChipsMain}>
+							<div className={catS.filterChip}>
+								<p>Fake</p> <X size={20} />
+							</div>
+							<div className={catS.filterChip}>
+								<p>Fake</p> <X size={20} />
+							</div>
+						</div>
+						{/* Sort Input */}
+						<div className={catS.sortMain}>
+							<p>Sort:</p>
+							<SecondaryBtn
+								label={""}
+								onClick={() => console.log("coming soon")}
+							/>
+						</div>
+					</div>
+					<TempDataComp />
+				</div>
+			</div>
 		</main>
 	);
 }

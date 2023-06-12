@@ -8,6 +8,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	padding: 2.875rem 4.5rem;
+	margin-bottom: 2.875rem;
 	color: $neutral-white;
 	background-color: $primary-main;
 
@@ -21,27 +22,113 @@
 	}
 }
 
-// Temp
-.tempCards {
+.categoryShopMain {
 	display: grid;
-	align-items: center;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 16.125rem auto;
+	padding: 0 4.5rem;
+	background-color: $page-background;
 
-	gap: 1rem;
-	padding: 1rem;
-	background-color: teal;
-}
-.tempCard {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	gap: 1rem;
-	padding: 1rem;
-	background-color: antiquewhite;
-	cursor: pointer;
-	&:hover {
-		transition: $trans-basic;
-		background-color: aquamarine;
-		box-shadow: $box-shadow-3;
+	.filterAside {
+		h5 {
+			@include H5;
+		}
+
+		.filterSection {
+			padding-top: 2rem;
+
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				padding: 0.5rem 0;
+				background-color: transparent;
+				border: none;
+				border-top: 2px solid $primary-main;
+				&:hover {
+					cursor: pointer;
+
+					background-color: $neutral-border;
+				}
+
+				h6 {
+					@include H6;
+				}
+			}
+			p {
+				@include P3;
+				padding-top: 0.75rem;
+			}
+		}
+	}
+
+	.desktopCardsMain {
+		padding: 0 0 0 3rem;
+		max-width: 100%;
+
+		.desktopCardsTop {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.sortMain {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+
+				button {
+					height: 30px;
+					padding: 0 auto;
+				}
+			}
+		}
+
+		.filterChipsMain {
+			display: flex;
+			gap: 0.5rem;
+
+			.filterChip {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				height: min-content;
+				padding: 0.25rem 0.375rem;
+				color: $primary-main;
+				background-color: $neutral-white;
+				border: 1px solid $neutral-border;
+				border-radius: 999px;
+			}
+		}
+		.productCards {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5rem;
+			padding-top: 2rem;
+		}
+		.productCard {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+
+			cursor: pointer;
+			&:hover {
+				transition: $trans-basic;
+				box-shadow: $box-shadow-3;
+			}
+			.imgContainer {
+				aspect-ratio: 1.5/1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+
+				img {
+					aspect-ratio: 1.5/1;
+					transition: transform 0.3s;
+				}
+			}
+		}
 	}
 }
