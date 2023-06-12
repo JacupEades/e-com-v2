@@ -58,10 +58,10 @@ export default function Home() {
 					{/* grid container */}
 					<div className={homeS.byCatContainer}>
 						{/* 1/4 grid image and title */}
-						<CategoryBlock image={"bamboo"} category={"Desks"} />
-						<CategoryBlock image={"bamboo"} category={"Chairs"} />
-						<CategoryBlock image={"bamboo"} category={"Storage"} />
-						<CategoryBlock image={"bamboo"} category={"Accessories"} />
+						<CategoryBlock image={"/cat_img_1.svg"} category={"Desks"} />
+						<CategoryBlock image={"/cat_img_2.svg"} category={"Chairs"} />
+						<CategoryBlock image={"/cat_img_3.svg"} category={"Storage"} />
+						<CategoryBlock image={"/cat_img_4.svg"} category={"Accessories"} />
 					</div>
 				</div>
 			</section>

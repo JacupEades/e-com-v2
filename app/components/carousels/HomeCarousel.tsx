@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import homeS from "../../styles/Home.module.scss";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import PrimaryBtn from "../buttons/PrimaryBtn";
 
 type Props = {};
 
@@ -53,7 +54,15 @@ export default function HomeCarousel({}: Props) {
 							{/* <p>STAR STAR STAR STAR</p>
 							<p>Emily Smith</p>
 							<CheckCircle size={20} weight="fill" /> */}
-							<h1>Slide 1</h1>
+							<h1>The ErgoGlide Deluxe</h1>
+							<p>
+								Say goodbye to discomfort and hello to ergonomic bliss! This
+								desk is a game-changer for anyone who spends long hours working.
+							</p>
+							<PrimaryBtn
+								label={"Shop this item"}
+								onClick={() => console.log("Test")}
+							/>
 						</div>
 						<div className={homeS.carQuotesBot} />
 					</div>
@@ -69,7 +78,17 @@ export default function HomeCarousel({}: Props) {
 							{/* <p>STAR STAR STAR STAR</p>
 							<p>Emily Smith</p>
 							<CheckCircle size={20} weight="fill" /> */}
-							<h1>Slide 2</h1>
+							<h1>The Tech Guru Dream</h1>
+							<p>
+								This desk is a techie&apos;s paradise! It&apos;s designed with
+								all the modern conveniences you could ask for. The built-in
+								wireless charging pad keeps my phone and other devices powered
+								up without the hassle of cords.
+							</p>
+							<PrimaryBtn
+								label={"Shop this item"}
+								onClick={() => console.log("Test")}
+							/>
 						</div>
 						<div className={homeS.carQuotesBot} />
 					</div>
@@ -85,7 +104,16 @@ export default function HomeCarousel({}: Props) {
 							{/* <p>STAR STAR STAR STAR</p>
 							<p>Emily Smith</p>
 							<CheckCircle size={20} weight="fill" /> */}
-							<h1>Slide 3</h1>
+							<h1>The Zen Workspace</h1>
+							<p>
+								This desk is a true sanctuary for productivity and peace of
+								mind. Its minimalist design and clean lines create a calming
+								atmosphere that helps me focus on my work.
+							</p>
+							<PrimaryBtn
+								label={"Shop this item"}
+								onClick={() => console.log("Test")}
+							/>
 						</div>
 						<div className={homeS.carQuotesBot} />
 					</div>

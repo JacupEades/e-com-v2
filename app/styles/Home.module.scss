@@ -224,10 +224,13 @@
 		max-height: 350px;
 		max-width: 350px;
 		border-radius: 999px;
-		border: 2px solid $secondary-main;
+		border: none;
+		border: 2px solid $page-background;
 		overflow: hidden;
 		&:hover {
 			cursor: pointer;
+			transition: $trans-basic;
+			border: 1px solid $secondary-main;
 		}
 		.byCatImage {
 			position: relative;
@@ -254,7 +257,8 @@
 	margin-top: 4rem;
 	padding: 3rem 4.5rem;
 
-	button {
+	.leftCarBtn,
+	.rightCarBtn {
 		position: absolute;
 		top: 50%;
 		height: 4rem;
@@ -288,13 +292,18 @@
 
 		li {
 			position: absolute;
-			inset: 0;
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			top: -10;
+			display: flex;
 			align-items: center;
+			justify-content: center;
+			margin: 0 auto;
+			width: 85%;
+			height: 494px;
 			opacity: 0;
+			color: $primary-darker;
 			transition: 200ms opacity ease-in-out;
 			transition-delay: 200ms;
+			overflow: hidden;
 		}
 
 		li[data-active] {
@@ -302,17 +311,17 @@
 		}
 
 		.carouselSVG1 {
-			width: calc(90% - 4rem);
+			width: 100%;
 			height: 430px;
 			margin: 2rem;
 			justify-self: end;
 
-			background-image: url("/twoguys_chilling.svg");
+			background-image: url("/chair_2.svg");
 			background-size: cover;
 			background-position: center;
 		}
 		.carouselSVG2 {
-			width: calc(90% - 4rem);
+			width: 100%;
 			height: 430px;
 			margin: 2rem;
 			justify-self: end;
@@ -322,7 +331,7 @@
 			background-position: center;
 		}
 		.carouselSVG3 {
-			width: calc(90% - 4rem);
+			width: 100%;
 			height: 430px;
 			margin: 2rem;
 			justify-self: end;
@@ -335,26 +344,34 @@
 		.carouselRight {
 			width: 100%;
 			height: 100%;
+			padding-right: 3rem;
 
 			.carQuotesTop {
-				width: 120px;
-				height: 120px;
+				width: 64px;
+				height: 64px;
 				background-image: url("/quotes.svg");
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
 			}
 			.carQuotesBot {
-				width: 120px;
-				height: 120px;
+				width: 64px;
+				height: 64px;
 				background-image: url("/quotes.svg");
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
-				transform: rotate(180deg);
+				transform: rotate(180deg) translate(-12rem, 0);
 			}
 
 			.carDetailed {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+
+				p {
+					@include P1;
+				}
 				svg {
 					color: $primary-lightest;
 				}
@@ -367,6 +384,7 @@
 .infoMain {
 	width: 100%;
 	margin-top: 3rem;
+	height: min-content;
 
 	.info {
 		display: flex;
@@ -376,15 +394,15 @@
 		text-align: center;
 
 		width: 100%;
-		height: 289px;
+		height: min-content;
 		background-color: $primary-darker;
 
 		.infoBlock {
-			max-height: 200px;
+			// max-height: 200px;
 			.infoBMain {
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
+				justify-content: space-around;
 				align-items: center;
 				gap: 0.5rem;
 
@@ -416,7 +434,8 @@
 		display: grid;
 		grid-template-columns: repeat(2, calc(50% - 1.5rem));
 		gap: 3rem;
-		// max-width: 1056px;
+		width: 90%;
+		max-width: 75rem;
 		padding: 2rem 4.5rem;
 		margin: 0 auto;
 		.our1 {
@@ -466,7 +485,7 @@
 				border-radius: 0px 200px 0px 0px;
 				overflow: hidden;
 
-				background-image: url("/twoguys_chilling.svg");
+				background-image: url("/chair_6.svg");
 				background-size: cover;
 				background-position: center;
 			}

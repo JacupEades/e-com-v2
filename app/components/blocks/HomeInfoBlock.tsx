@@ -13,8 +13,10 @@ export default function HomeInfoBlock({ icon, title, text }: Props) {
 			<div className={homeS.infoBlock}>
 				<div className={homeS.infoBMain}>
 					{icon}
-					<h5>{title}</h5>
-					<p>{text}</p>
+					<div>
+						<h5>{title}</h5>
+						<p>{text}</p>
+					</div>
 				</div>
 			</div>
 		</>

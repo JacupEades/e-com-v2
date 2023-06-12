@@ -23,14 +23,14 @@ export default function Footer() {
 				<Link href={"/"}>Terms & Conditions</Link>
 			</div>
 			<div className={styles.footerSection}>
-				<h6>Bra</h6>
+				<h6>Contact</h6>
 				<Link href={"/"}>Returns</Link>
 				<Link href={"/"}>Shipping</Link>
 				<Link href={"/"}>Terms & Conditions</Link>
 				<Link href={"/"}>Warrenty</Link>
 			</div>
 			<div className={styles.footerSection}>
-				<h6>Sale!!</h6>
+				<h6>Sale</h6>
 				<Link href={"/"}>Terms & Conditions</Link>
 				<Link href={"/"}>Returns</Link>
 				<Link href={"/"}>Warrenty</Link>
