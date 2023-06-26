@@ -59,7 +59,7 @@ export default function Chairs({}: Props) {
 						</div>
 						<h3>{obj.name}</h3>
 						<p>SKU: {obj.id}</p>
-						<p>Color: {obj.color}</p>
+						<p>Color: {obj.color[0].Top}</p>
 						<p>Price: ${obj.price}.99</p>
 						<PrimaryBtn
 							label={"Get Item"}

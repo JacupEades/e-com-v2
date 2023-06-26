@@ -58,15 +58,20 @@ export default function CartProductCard({
 				return (
 					<div key={i} className={cartS.cartCard}>
 						<div className={cartS.cardImage}>
-							<Image src={`/bamboo.svg`} alt={"placeholder"} fill />
+							<Image
+								src={`/chair_${obj.itemId}.svg`}
+								alt={"placeholder"}
+								priority={false}
+								fill
+							/>
 						</div>
 						<div className={cartS.cardDetails}>
 							<p className={cartS.cardTitle}>{singleItem.name}</p>
 							<p className={cartS.cardColor}>
-								TOP COLOR: <span>{singleItem.color}</span>
+								TOP COLOR: <span>{singleItem.color[0].Top}</span>
 							</p>
 							<p className={cartS.cardColor}>
-								LEG COLOR: <span>{singleItem.color}</span>
+								LEG COLOR: <span>{singleItem.color[0].Leg}</span>
 							</p>
 							<div className={cartS.cardOptions}>
 								<div className={cartS.cardOption1}>

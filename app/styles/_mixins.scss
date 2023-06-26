@@ -66,6 +66,22 @@
 		box-shadow: 0 0 0 2px $secondary-color;
 	}
 }
+@mixin WishlistBtnRegularWhiteBg() {
+	display: inline-flex;
+	padding: 0.5rem;
+	align-items: flex-start;
+	gap: 0.5rem;
+	color: $primary-darker;
+	background: $neutral-white;
+	border: none;
+	border-radius: 48px;
+	cursor: pointer;
+}
+@mixin WishlistBtnFilledWhiteBg() {
+	@include WishlistBtnRegularWhiteBg();
+	color: $discount;
+}
+
 // Links
 @mixin MenuLink() {
 	padding: 0.75rem 1rem;
@@ -92,4 +108,24 @@
 	&:focus {
 		border: none;
 	}
+}
+// SHOP OVERLAY
+@mixin ShopOverlayPersist() {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 3.375rem;
+
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.25) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	cursor: pointer;
+	transition: $trans-basic;
+}
+
+@mixin ShopOverlayHover() {
+	@include ShopOverlayPersist;
+	opacity: 0;
 }

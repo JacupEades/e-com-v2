@@ -40,7 +40,7 @@ export default function Shop() {
 					<div key={obj.id} className={styles.tempCard}>
 						<h3>{obj.name}</h3>
 						<p>SKU: {obj.id}</p>
-						<p>Color: {obj.color}</p>
+						<p>Color: {obj.color[0].Top}</p>
 						<p>Price: ${obj.price}.99</p>
 						<ButtonOne
 							// itemState[obj.id].quantity > 0 ? "Add Another" :

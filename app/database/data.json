@@ -3,37 +3,37 @@
 		{
 			"id": 1,
 			"name": "Cool Chair",
-			"color": "black",
+			"color": [{ "Top": "Brown" }, { "Leg": "Brown" }],
 			"price": 1200
 		},
 		{
 			"id": 2,
-			"name": "Sky Line",
-			"color": "blue",
+			"name": "Neat Desk",
+			"color": [{ "Top": "Grey" }, { "Leg": "White" }],
 			"price": 1000
 		},
 		{
 			"id": 3,
-			"name": "Grove",
-			"color": "green",
-			"price": 499
+			"name": "Head Hunter",
+			"color": [{ "Top": "Green" }, { "Leg": "Brown" }],
+			"price": 200
 		},
 		{
 			"id": 4,
-			"name": "Heavens Throne",
-			"color": "gold",
-			"price": 367
+			"name": "Corner Desky",
+			"color": [{ "Top": "White" }, { "Leg": "White" }],
+			"price": 3598
 		},
 		{
 			"id": 5,
 			"name": "Rail Line",
-			"color": "grey",
+			"color": [{ "Top": "Grey" }, { "Leg": "Brown" }],
 			"price": 256
 		},
 		{
 			"id": 6,
-			"name": "Razing Blaze",
-			"color": "Pink",
+			"name": "Razing Desks",
+			"color": [{ "Top": "Green" }, { "Leg": "White" }],
 			"price": 450
 		}
 	]

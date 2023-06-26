@@ -5,13 +5,13 @@ import proS from "../../styles/Product.module.scss";
 import Link from "next/link";
 
 type Param = { params: { productId: string } };
-type Product = { id: string; name: string; color: string; price: number };
+type Product = { id: string; name: string; color: any; price: number };
 
 export default function Product({ params }: Param) {
 	const [product, setProduct] = useState<Product>({
 		id: params.productId,
 		name: "",
-		color: "",
+		color: [{ Top: "", Leg: "" }],
 		price: 0,
 	});
 
@@ -46,7 +46,8 @@ export default function Product({ params }: Param) {
 				<div>
 					<h1>{product.id}</h1>
 					<h1>{product.name}</h1>
-					<h1>{product.color}</h1>
+					<h1>{product.color[0].Top}</h1>
+					<h1>{product.color[0].Leg}</h1>
 					<h1>{product.price}</h1>
 				</div>
 			</section>
