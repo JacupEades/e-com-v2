@@ -5,8 +5,6 @@
 
 // CATAGORY SHOP PAGES
 .categoryHeaderMain {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
 	padding: 2.875rem 4.5rem;
 	margin-bottom: 2.875rem;
 	color: $neutral-white;
@@ -19,6 +17,7 @@
 
 	p {
 		@include P1();
+		max-width: 39.75rem;
 	}
 }
 
@@ -40,11 +39,15 @@
 		}
 	}
 
-	.desktopCardsMain {
+	.cardsMain {
 		display: grid;
 		grid-template-rows: 3rem 1fr;
 		padding: 0 0 0 3rem;
 		max-width: fit-content;
+
+		.mobileCardsTop {
+			display: none;
+		}
 
 		.desktopCardsTop {
 			display: flex;
@@ -148,6 +151,7 @@
 				max-width: 19.125rem;
 				height: min-content;
 				cursor: pointer;
+				overflow: hidden;
 
 				.cardOverlayPersist {
 					@include ShopOverlayPersist;
@@ -230,6 +234,61 @@
 							background-color: $neutral-border;
 						}
 					}
+				}
+			}
+		}
+	}
+}
+
+// Single product column breakpoint (6\27\2023)
+@media (max-width: 56.25rem) {
+	.categoryShopMain {
+		display: flex;
+		padding: 0 3rem;
+
+		.filterAside {
+			display: none;
+		}
+
+		.cardsMain {
+			display: grid;
+			grid-template-rows: 3.5rem 1fr;
+			padding: 0;
+			.productCards {
+				justify-content: center;
+				align-items: center;
+
+				.productCard {
+					width: 15.5625rem;
+
+					.cardImage {
+						aspect-ratio: 1.5/1;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						img {
+							aspect-ratio: 1.5/1;
+							transition: transform 0.3s;
+						}
+					}
+				}
+			}
+
+			.desktopCardsTop {
+				display: none;
+			}
+
+			.mobileCardsTop {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 3rem;
+				width: 100%;
+
+				button {
+					width: 100%;
+					color: $primary-darker;
 				}
 			}
 		}

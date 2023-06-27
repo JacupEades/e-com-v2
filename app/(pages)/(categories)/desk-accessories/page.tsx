@@ -3,6 +3,7 @@ import catS from "../../../styles/Shop.module.scss";
 import { CaretDown, X } from "@phosphor-icons/react";
 import ShopCard from "@/app/components/cards/ShopCard";
 import FilterDrop from "@/app/components/dropdowns/shop-filters/FliterDrop";
+import SecondaryBtn from "@/app/components/buttons/SecondaryBtn";
 
 type Props = {};
 
@@ -21,7 +22,7 @@ export default function DeskAccessories({}: Props) {
 					<FilterDrop dropType={"shipping"} />
 				</aside>
 				{/* Cards */}
-				<div className={catS.desktopCardsMain}>
+				<div className={catS.cardsMain}>
 					<div className={catS.desktopCardsTop}>
 						{/* Chips */}
 						<div className={catS.filterChipsMain}>
@@ -42,6 +43,13 @@ export default function DeskAccessories({}: Props) {
 								</button>
 							</div>
 						</div>
+					</div>
+					{/* Mobile */}
+					<div className={catS.mobileCardsTop}>
+						<SecondaryBtn
+							label={"Filter & Sort"}
+							onClick={() => console.log("not Ready")}
+						/>
 					</div>
 					<ShopCard />
 				</div>
