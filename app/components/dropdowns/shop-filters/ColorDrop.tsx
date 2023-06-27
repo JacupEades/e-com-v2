@@ -5,9 +5,18 @@ import { CaretUp } from "@phosphor-icons/react";
 
 type Props = {};
 
-const options = ["Under $200", "$200 to 300", "$300 to 500", "Above $500"];
+const options = [
+	{ label: "Brown", color: "#964B00" },
+	{ label: "White", color: "#FFFFFF" },
+	{ label: "Gray", color: "#808080" },
+	{ label: "Beige", color: "#F5F5DC" },
+	{ label: "Black", color: "#000000" },
+	{ label: "Green", color: "#008000" },
+	{ label: "Blue", color: "#0000FF" },
+	{ label: "Red", color: "#FF0000" },
+];
 
-export default function PriceDrop() {
+export default function ColorDrop() {
 	const [dropActiveStyle, setDropActiveStyle] = useState(sDropS.active);
 	const [selectedOptions, setSelectedOptions] = useState<any>([]);
 	const [isOpen, setIsOpen] = useState(true);
@@ -36,9 +45,9 @@ export default function PriceDrop() {
 	};
 
 	return (
-		<section className={`${sDropS.dropDownMainPrice} ${dropActiveStyle}`}>
+		<section className={`${sDropS.dropDownMainColor} ${dropActiveStyle}`}>
 			<button className={sDropS.dropToggleBtn} onClick={toggleIsOpen}>
-				<h6 className={sDropS.dropToggleBtnText}>PRICE</h6>
+				<h6 className={sDropS.dropToggleBtnText}>COLOR</h6>
 				<CaretUp
 					size={24}
 					style={
@@ -50,44 +59,25 @@ export default function PriceDrop() {
 			</button>
 			{/* Content */}
 			{/* Checkboxes */}
-			<div className={sDropS.checkboxMenu}>
-				{/* Inputs */}
-				<div className={sDropS.numberMenu}>
-					<label htmlFor="minIn" className={sDropS.numberLabel}>
-						$
-					</label>
-					<input
-						inputMode="numeric"
-						pattern="[0-9]+"
-						id="minIn"
-						placeholder="Min"
-						className={sDropS.numberInput}
-					/>
-					<label htmlFor="maxIn" className={sDropS.numberLabel}>
-						$
-					</label>
-					<input
-						inputMode="numeric"
-						pattern="[0-9]+"
-						id="maxIn"
-						placeholder="Max"
-						className={sDropS.numberInput}
-					/>
-				</div>
-				{options.map((option) => (
-					<div key={option} className={sDropS.checkboxContent}>
-						<input
-							type="checkbox"
-							id={option}
-							checked={selectedOptions.includes(option)}
-							onChange={() => handleOptionToggle(option)}
-							className={sDropS.checkboxInput}
-						/>
-						<label htmlFor={option} className={sDropS.checkboxLabel}>
-							{option}
-						</label>
-					</div>
-				))}
+			<div className={sDropS.colorMenu}>
+				{options.map((option, i) => {
+					return (
+						<div key={i} className={sDropS.colorContent}>
+							<input
+								type="checkbox"
+								id={option.label}
+								checked={selectedOptions.includes(option.label)}
+								onChange={() => handleOptionToggle(option.label)}
+								className={sDropS.colorInput}
+							/>
+							<label
+								htmlFor={option.label}
+								className={`${sDropS.colorLabel} ${sDropS[`colorLabel${i}`]}`}>
+								{option.label}
+							</label>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

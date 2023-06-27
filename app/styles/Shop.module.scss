@@ -42,18 +42,15 @@
 
 	.desktopCardsMain {
 		display: grid;
-		grid-template-areas:
-			"Heading"
-			"Card";
+		grid-template-rows: 3rem 1fr;
 		padding: 0 0 0 3rem;
 		max-width: fit-content;
 
 		.desktopCardsTop {
-			grid-area: Heading;
-
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			height: 3rem;
 
 			.sortMain {
 				display: flex;
@@ -135,13 +132,11 @@
 		}
 		// PRODUCT CARDS
 		.productCards {
-			grid-area: Card;
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: flex-start;
 			gap: 2rem 1.5rem;
+			height: min-content;
 			padding-top: 2rem;
-			// GRID BREAKPOINTS
 
 			.productCard {
 				position: relative;
@@ -151,6 +146,7 @@
 				align-items: center;
 				gap: 1rem;
 				max-width: 19.125rem;
+				height: min-content;
 				cursor: pointer;
 
 				.cardOverlayPersist {

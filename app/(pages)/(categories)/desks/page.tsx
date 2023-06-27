@@ -16,6 +16,9 @@ export default function Desks({}: Props) {
 					{/* Type */}
 					<FilterDrop dropType={"type"} />
 					<FilterDrop dropType={"price"} />
+					<FilterDrop dropType={"color"} />
+					<FilterDrop dropType={"rating"} />
+					<FilterDrop dropType={"shipping"} />
 				</aside>
 				{/* Cards */}
 				<div className={catS.desktopCardsMain}>

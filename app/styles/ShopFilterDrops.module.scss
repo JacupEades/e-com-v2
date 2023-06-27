@@ -4,7 +4,23 @@
 @import "buttons";
 
 // TYPE SECTION
-.dropDownMain {
+.dropDownMainType {
+	position: relative;
+	transition: padding 0.5s ease-out;
+
+	&.active {
+		padding-bottom: 10.25rem;
+		transition: padding 0.25s ease-out;
+	}
+
+	&.active > .dropToggleBtn + .checkboxMenu {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		pointer-events: auto;
+	}
+}
+// PRICE SECTION
+.dropDownMainPrice {
 	position: relative;
 	transition: padding 0.5s ease-out;
 
@@ -19,107 +35,6 @@
 		pointer-events: auto;
 	}
 
-	.checkboxMenu {
-		position: absolute;
-		top: 3.125rem;
-		left: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-		opacity: 0;
-		transform: translateY(-5rem) scale(1, 0.001);
-		transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-		pointer-events: none;
-
-		.checkboxContent {
-			position: relative;
-			@include P3;
-
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-
-			// All the checkbox stuff
-			.checkboxInput {
-				position: absolute;
-				left: 0.5rem;
-				opacity: 0;
-				cursor: pointer;
-
-				&:hover + .checkboxLabel::before {
-					background-color: $primary-lightest;
-					transition: $trans-basic;
-				}
-
-				&:checked + .checkboxLabel::before {
-					background-color: $primary-darker;
-					border-color: $primary-darker;
-					transition: $trans-basic;
-					content: url(../../public/check_pi.svg);
-				}
-
-				// Animation
-				&:checked + .checkboxLabel::after {
-					opacity: 1;
-					animation: fadeOut 1s forwards;
-				}
-
-				@keyframes fadeOut {
-					0% {
-						opacity: 0.9;
-					}
-					100% {
-						opacity: 0;
-					}
-				}
-			}
-			.checkboxLabel {
-				display: flex;
-				align-items: center;
-				justify-content: flex-start;
-				gap: 0.25rem;
-				cursor: pointer;
-				&::before {
-					content: "";
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					height: 1.25rem;
-					width: 1.25rem;
-					margin: 0.25rem;
-					padding-top: 0.25rem;
-					color: $neutral-white;
-					background-color: transparent;
-					border: 1px solid $neutral-light;
-					border-radius: 0.25rem;
-					transition: $trans-basic;
-					z-index: 1;
-				}
-
-				&:hover::before {
-					background-color: $primary-lightest;
-					transition: $trans-basic;
-				}
-				// Animation for active
-				&::after {
-					content: "";
-					position: absolute;
-					left: -0.125rem;
-					padding: 1rem;
-					background-color: $primary-main;
-					border-radius: 999px;
-					opacity: 0;
-					transition: opacity 0.5s;
-					pointer-events: none;
-					z-index: 0;
-				}
-			}
-		}
-	}
-}
-
-// PRICE SECTION
-.dropDownMain {
 	.numberMenu {
 		position: relative;
 		display: flex;
@@ -145,6 +60,257 @@
 		}
 	}
 }
+// COLOR SECTION
+.dropDownMainColor {
+	position: relative;
+	transition: padding 0.5s ease-out;
+
+	&.active {
+		padding-bottom: 8.75rem;
+		transition: padding 0.25s ease-out;
+	}
+
+	&.active > .dropToggleBtn + .colorMenu {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		pointer-events: auto;
+	}
+
+	.colorMenu {
+		position: absolute;
+		top: 3.125rem;
+		left: 0;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+
+		opacity: 0;
+		transform: translateY(-5rem) scale(1, 0.001);
+		transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+		pointer-events: none;
+
+		.colorContent {
+			position: relative;
+			@include P3;
+
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			height: 1.5rem;
+			width: 6.1875rem;
+
+			// All the color stuff
+			.colorInput {
+				position: absolute;
+				left: 0.5rem;
+				opacity: 0;
+				cursor: pointer;
+			}
+			.colorLabel {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				gap: 0.25rem;
+				cursor: pointer;
+
+				&::before {
+					content: "";
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 1.5rem;
+					height: 1.5rem;
+					margin: 0.25rem;
+					padding-top: 0.25rem;
+					color: $neutral-white;
+					border: 1px solid $neutral-light;
+					border-radius: 3rem;
+					transition: transform 0.2s ease-out;
+					z-index: 1;
+				}
+			}
+			// Brown
+			.colorLabel0::before {
+				background-color: $product-brown;
+			}
+			.colorInput:hover + .colorLabel0::before {
+				outline: 2px solid $product-brown;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel0::before {
+				background-color: $product-brown;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi.svg);
+			}
+			// White
+			.colorLabel1::before {
+				background-color: $product-white;
+			}
+			.colorInput:hover + .colorLabel1::before {
+				outline: 2px solid $product-white;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel1::before {
+				background-color: $product-white;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi_black.svg);
+			}
+			// Grey
+			.colorLabel2::before {
+				background-color: $product-grey;
+			}
+			.colorInput:hover + .colorLabel2::before {
+				outline: 2px solid $product-grey;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel2::before {
+				background-color: $product-grey;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi.svg);
+			}
+			// Beige
+			.colorLabel3::before {
+				background-color: $product-beige;
+			}
+			.colorInput:hover + .colorLabel3::before {
+				outline: 2px solid $product-beige;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel3::before {
+				background-color: $product-beige;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi_black.svg);
+			}
+			// Black
+			.colorLabel4::before {
+				background-color: $product-black;
+			}
+			.colorInput:hover + .colorLabel4::before {
+				outline: 2px solid $product-black;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel4::before {
+				background-color: $product-black;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi.svg);
+			}
+			// Green
+			.colorLabel5::before {
+				background-color: $product-green;
+			}
+			.colorInput:hover + .colorLabel5::before {
+				outline: 2px solid $product-green;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel5::before {
+				background-color: $product-green;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi_black.svg);
+			}
+			// Blue
+			.colorLabel6::before {
+				background-color: $product-blue;
+			}
+			.colorInput:hover + .colorLabel6::before {
+				outline: 2px solid $product-blue;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel6::before {
+				background-color: $product-blue;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi.svg);
+			}
+			// Red
+			.colorLabel7::before {
+				background-color: $product-red;
+			}
+			.colorInput:hover + .colorLabel7::before {
+				outline: 2px solid $product-red;
+				outline-offset: 0.125rem;
+				transform: scale(1.1);
+				transition: transform 0.1s ease-out, outline 0.1s;
+				transition-delay: 0s, 0.1s;
+			}
+			.colorInput:checked + .colorLabel7::before {
+				background-color: $product-red;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi_black.svg);
+			}
+		}
+	}
+}
+// RATING SECTION
+.dropDownMainRating {
+	position: relative;
+	transition: padding 0.5s ease-out;
+
+	&.active {
+		padding-bottom: 8.25rem;
+		transition: padding 0.25s ease-out;
+	}
+
+	&.active > .dropToggleBtn + .checkboxMenu {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		pointer-events: auto;
+	}
+
+	.checkboxLabel {
+		.ratingStars {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 0.25rem;
+			color: $secondary-main;
+		}
+	}
+}
+// SHIPPING SECTION
+.dropDownMainShipping {
+	position: relative;
+	transition: padding 0.5s ease-out;
+
+	&.active {
+		padding-bottom: 6rem;
+		transition: padding 0.25s ease-out;
+	}
+
+	&.active > .dropToggleBtn + .checkboxMenu {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		pointer-events: auto;
+	}
+
+	.shippingP {
+		@include P2;
+		a {
+			@include P2;
+			color: $neutral-text;
+		}
+	}
+}
 
 // Shared Syles
 .dropToggleBtn {
@@ -162,5 +328,103 @@
 	}
 	.dropToggleBtnText {
 		@include H6;
+	}
+}
+
+.checkboxMenu {
+	position: absolute;
+	top: 3.125rem;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	opacity: 0;
+	transform: translateY(-5rem) scale(1, 0.001);
+	transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+	pointer-events: none;
+
+	.checkboxContent {
+		position: relative;
+		@include P3;
+
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+
+		// All the checkbox stuff
+		.checkboxInput {
+			position: absolute;
+			left: 0.5rem;
+			opacity: 0;
+			cursor: pointer;
+
+			&:hover + .checkboxLabel::before {
+				background-color: $primary-lightest;
+				transition: $trans-basic;
+			}
+
+			&:checked + .checkboxLabel::before {
+				background-color: $primary-darker;
+				border-color: $primary-darker;
+				transition: $trans-basic;
+				content: url(../../public/icons/check_pi.svg);
+			}
+
+			// Animation
+			&:checked + .checkboxLabel::after {
+				opacity: 1;
+				animation: fadeOut 1s forwards;
+			}
+
+			@keyframes fadeOut {
+				0% {
+					opacity: 0.9;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+		}
+		.checkboxLabel {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.25rem;
+			cursor: pointer;
+			&::before {
+				content: "";
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 1.25rem;
+				width: 1.25rem;
+				margin: 0.25rem;
+				padding-top: 0.25rem;
+				color: $neutral-white;
+				background-color: transparent;
+				border: 1px solid $neutral-light;
+				border-radius: 0.25rem;
+				transition: $trans-basic;
+				z-index: 1;
+			}
+
+			&:hover::before {
+				background-color: $primary-lightest;
+				transition: $trans-basic;
+			}
+			// Animation for active
+			&::after {
+				content: "";
+				position: absolute;
+				left: -0.125rem;
+				padding: 1rem;
+				background-color: $primary-main;
+				border-radius: 999px;
+				opacity: 0;
+				transition: opacity 0.5s;
+				pointer-events: none;
+				z-index: 0;
+			}
+		}
 	}
 }

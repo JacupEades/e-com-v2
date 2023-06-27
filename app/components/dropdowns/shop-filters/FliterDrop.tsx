@@ -1,4 +1,7 @@
+import ColorDrop from "./ColorDrop";
 import PriceDrop from "./PriceDrop";
+import RatingDrop from "./RatingDrop";
+import ShippingDrop from "./ShippingDrop";
 import TypeDrop from "./TypeDrop";
 
 type Props = {
@@ -12,11 +15,11 @@ export default function FilterDrop({ dropType }: Props) {
 		case "price":
 			return <PriceDrop />;
 		case "color":
-			return <TypeDrop />;
+			return <ColorDrop />;
 		case "rating":
-			return <TypeDrop />;
+			return <RatingDrop />;
 		case "shipping":
-			return <TypeDrop />;
+			return <ShippingDrop />;
 		default:
 			return <p>Error in TypeDrop: {dropType}</p>;
 	}

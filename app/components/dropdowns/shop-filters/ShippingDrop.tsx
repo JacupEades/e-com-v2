@@ -1,13 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import sDropS from "../../../styles/ShopFilterDrops.module.scss";
-import { CaretUp } from "@phosphor-icons/react";
+import { CaretUp, Star } from "@phosphor-icons/react";
+import Link from "next/link";
 
 type Props = {};
 
-const options = ["Under $200", "$200 to 300", "$300 to 500", "Above $500"];
-
-export default function PriceDrop() {
+export default function ShippingDrop() {
 	const [dropActiveStyle, setDropActiveStyle] = useState(sDropS.active);
 	const [selectedOptions, setSelectedOptions] = useState<any>([]);
 	const [isOpen, setIsOpen] = useState(true);
@@ -36,9 +35,9 @@ export default function PriceDrop() {
 	};
 
 	return (
-		<section className={`${sDropS.dropDownMainPrice} ${dropActiveStyle}`}>
+		<section className={`${sDropS.dropDownMainShipping} ${dropActiveStyle}`}>
 			<button className={sDropS.dropToggleBtn} onClick={toggleIsOpen}>
-				<h6 className={sDropS.dropToggleBtnText}>PRICE</h6>
+				<h6 className={sDropS.dropToggleBtnText}>SHIPPING</h6>
 				<CaretUp
 					size={24}
 					style={
@@ -48,46 +47,34 @@ export default function PriceDrop() {
 					}
 				/>
 			</button>
-			{/* Content */}
-			{/* Checkboxes */}
 			<div className={sDropS.checkboxMenu}>
-				{/* Inputs */}
-				<div className={sDropS.numberMenu}>
-					<label htmlFor="minIn" className={sDropS.numberLabel}>
-						$
-					</label>
+				<p className={sDropS.shippingP}>
+					to <Link href={"#3andUp"}>Lynchburg – 24501</Link>
+				</p>
+				<div className={sDropS.checkboxContent}>
 					<input
-						inputMode="numeric"
-						pattern="[0-9]+"
-						id="minIn"
-						placeholder="Min"
-						className={sDropS.numberInput}
+						type="checkbox"
+						id={"2day"}
+						checked={selectedOptions.includes("2day")}
+						onChange={() => handleOptionToggle("2day")}
+						className={sDropS.checkboxInput}
 					/>
-					<label htmlFor="maxIn" className={sDropS.numberLabel}>
-						$
+					<label htmlFor={"2day"} className={sDropS.checkboxLabel}>
+						Within 2 days (by May 26)
 					</label>
-					<input
-						inputMode="numeric"
-						pattern="[0-9]+"
-						id="maxIn"
-						placeholder="Max"
-						className={sDropS.numberInput}
-					/>
 				</div>
-				{options.map((option) => (
-					<div key={option} className={sDropS.checkboxContent}>
-						<input
-							type="checkbox"
-							id={option}
-							checked={selectedOptions.includes(option)}
-							onChange={() => handleOptionToggle(option)}
-							className={sDropS.checkboxInput}
-						/>
-						<label htmlFor={option} className={sDropS.checkboxLabel}>
-							{option}
-						</label>
-					</div>
-				))}
+				<div className={sDropS.checkboxContent}>
+					<input
+						type="checkbox"
+						id={"5day"}
+						checked={selectedOptions.includes("5day")}
+						onChange={() => handleOptionToggle("5day")}
+						className={sDropS.checkboxInput}
+					/>
+					<label htmlFor={"5day"} className={sDropS.checkboxLabel}>
+						Within 5 days (by May 29)
+					</label>
+				</div>
 			</div>
 		</section>
 	);

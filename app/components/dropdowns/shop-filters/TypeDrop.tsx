@@ -14,9 +14,9 @@ const options = [
 ];
 
 export default function TypeDrop() {
-	const [dropActiveStyle, setDropActiveStyle] = useState(sDropS.inactive);
+	const [dropActiveStyle, setDropActiveStyle] = useState(sDropS.active);
 	const [selectedOptions, setSelectedOptions] = useState<any>([]);
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
 
 	useEffect(() => {
 		if (isOpen === true) {
@@ -42,7 +42,7 @@ export default function TypeDrop() {
 	};
 
 	return (
-		<section className={`${sDropS.dropDownMain} ${dropActiveStyle}`}>
+		<section className={`${sDropS.dropDownMainType} ${dropActiveStyle}`}>
 			<button className={sDropS.dropToggleBtn} onClick={toggleIsOpen}>
 				<h6 className={sDropS.dropToggleBtnText}>TYPE</h6>
 				<CaretUp
