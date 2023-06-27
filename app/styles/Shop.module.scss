@@ -29,44 +29,28 @@
 	background-color: $page-background;
 
 	.filterAside {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		padding-right: 3rem;
+
 		h5 {
 			@include H5;
-		}
-
-		.filterSection {
-			padding-top: 2rem;
-
-			button {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				width: 100%;
-				padding: 0.5rem 0;
-				background-color: transparent;
-				border: none;
-				border-top: 2px solid $primary-main;
-				&:hover {
-					cursor: pointer;
-
-					background-color: $neutral-border;
-				}
-
-				h6 {
-					@include H6;
-				}
-			}
-			p {
-				@include P3;
-				padding-top: 0.75rem;
-			}
 		}
 	}
 
 	.desktopCardsMain {
+		display: grid;
+		grid-template-areas:
+			"Heading"
+			"Card";
 		padding: 0 0 0 3rem;
-		max-width: 100%;
+		max-width: fit-content;
 
 		.desktopCardsTop {
+			grid-area: Heading;
+
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -81,31 +65,83 @@
 					padding: 0 auto;
 				}
 			}
-		}
-
-		.filterChipsMain {
-			display: flex;
-			gap: 0.5rem;
-
-			.filterChip {
+			// DESKTOP FILTERS TOP
+			.filterChipsMain {
 				display: flex;
-				justify-content: center;
-				align-items: center;
+				gap: 0.5rem;
 
-				height: min-content;
-				padding: 0.25rem 0.375rem;
-				color: $primary-main;
-				background-color: $neutral-white;
-				border: 1px solid $neutral-border;
-				border-radius: 999px;
+				.filterChip,
+				.filterChipSelected {
+					@include P2;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					height: min-content;
+					padding: 0.25rem 0.375rem;
+					color: $primary-main;
+					background-color: $neutral-white;
+					border: 1px solid $neutral-border;
+					border-radius: 999px;
+
+					p {
+						padding: 0rem 0.375rem;
+					}
+
+					&:hover {
+						border-color: $primary-main;
+					}
+				}
+				.filterChipSelected {
+					background-color: $primary-hover;
+					border-color: $primary-main;
+				}
+				.clearAllBtn {
+					@include P3;
+
+					color: $primary-main;
+					background-color: transparent;
+					border: none;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			.sortMain {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				width: 15.625rem;
+				p {
+					@include P2;
+				}
+
+				.dropDownMain {
+					width: 100%;
+
+					.dropDownBtn {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						width: 100%;
+						height: 2rem;
+						padding: 0rem 0.25rem;
+						background-color: $neutral-white;
+						color: $neutral-text;
+						border: 1px solid $neutral-border;
+					}
+				}
 			}
 		}
+		// PRODUCT CARDS
 		.productCards {
+			grid-area: Card;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: flex-start;
 			gap: 2rem 1.5rem;
 			padding-top: 2rem;
+			// GRID BREAKPOINTS
 
 			.productCard {
 				position: relative;
@@ -114,6 +150,7 @@
 				flex-direction: column;
 				align-items: center;
 				gap: 1rem;
+				max-width: 19.125rem;
 				cursor: pointer;
 
 				.cardOverlayPersist {

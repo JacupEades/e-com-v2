@@ -1,8 +1,7 @@
 "use client";
 import catS from "../../../styles/Shop.module.scss";
-import SecondaryBtn from "@/app/components/buttons/SecondaryBtn";
-import { X } from "@phosphor-icons/react";
-import FilterDropdown from "@/app/components/dropdowns/FilterDropdown";
+import { CaretDown, X } from "@phosphor-icons/react";
+import FilterDrop from "@/app/components/dropdowns/shop-filters/FliterDrop";
 import ShopCard from "@/app/components/cards/ShopCard";
 
 type Props = {};
@@ -15,7 +14,8 @@ export default function Desks({}: Props) {
 				<aside className={catS.filterAside}>
 					<h5>Filter</h5>
 					{/* Type */}
-					<FilterDropdown dropType={"type"} />
+					<FilterDrop dropType={"type"} />
+					<FilterDrop dropType={"type"} />
 				</aside>
 				{/* Cards */}
 				<div className={catS.desktopCardsMain}>
@@ -23,19 +23,21 @@ export default function Desks({}: Props) {
 						{/* Chips */}
 						<div className={catS.filterChipsMain}>
 							<div className={catS.filterChip}>
-								<p>Fake</p> <X size={20} />
+								<p>Default</p> <X size={20} />
 							</div>
-							<div className={catS.filterChip}>
-								<p>Fake</p> <X size={20} />
+							<div className={catS.filterChipSelected}>
+								<p>Selected</p> <X size={20} />
 							</div>
+							<button className={catS.clearAllBtn}>Clear All</button>
 						</div>
 						{/* Sort Input */}
 						<div className={catS.sortMain}>
 							<p>Sort:</p>
-							<SecondaryBtn
-								label={""}
-								onClick={() => console.log("coming soon")}
-							/>
+							<div className={catS.dropDownMain}>
+								<button className={catS.dropDownBtn}>
+									Featured <CaretDown size={16} />
+								</button>
+							</div>
 						</div>
 					</div>
 					<ShopCard />
