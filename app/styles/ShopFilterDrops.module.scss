@@ -4,22 +4,22 @@
 @import "buttons";
 
 // TYPE SECTION
-.typeDropMain {
+.dropDownMain {
 	position: relative;
 	transition: padding 0.5s ease-out;
 
 	&.active {
-		padding-bottom: 9.75rem;
+		padding-bottom: 10.25rem;
 		transition: padding 0.25s ease-out;
 	}
 
-	&.active > .dropToggleBtn + .typeMenu {
+	&.active > .dropToggleBtn + .checkboxMenu {
 		opacity: 1;
 		transform: translateY(0) scale(1);
 		pointer-events: auto;
 	}
 
-	.typeMenu {
+	.checkboxMenu {
 		position: absolute;
 		top: 3.125rem;
 		left: 0;
@@ -31,7 +31,7 @@
 		transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 		pointer-events: none;
 
-		.typeContent {
+		.checkboxContent {
 			position: relative;
 			@include P3;
 
@@ -118,20 +118,47 @@
 	}
 }
 
+// PRICE SECTION
+.dropDownMain {
+	.numberMenu {
+		position: relative;
+		display: flex;
+		gap: 0.5625rem;
+		height: 2rem;
+		max-width: 13.125rem;
+
+		.numberLabel {
+			position: absolute;
+			top: calc(50% - 0.5625rem);
+			left: 0.25rem;
+
+			&:first-child {
+				left: calc(50% + 0.5rem);
+			}
+		}
+		.numberInput {
+			width: 5.3125rem;
+			padding: 0.5rem 0.5rem 0.5rem 1rem;
+			background-color: $neutral-white;
+			border: 1px solid $neutral-border;
+			color: $neutral-text-secondary;
+		}
+	}
+}
+
 // Shared Syles
 .dropToggleBtn {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 0.5rem 0;
+	padding: 0.5rem 0.25rem;
 	background-color: transparent;
 	border: none;
 	border-top: 2px solid $primary-main;
 	&:hover {
 		cursor: pointer;
-
-		background-color: $neutral-border;
+		background-color: $primary-hover;
 	}
 	.dropToggleBtnText {
 		@include H6;
